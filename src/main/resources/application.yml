@@ -1,0 +1,79 @@
+# 节点配置
+server:
+  port: 8080
+
+spring:
+  # 设置数据源
+  application:
+    name: PgSqlTest
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/student_db
+    username: postgres
+    password: 123456
+    driver-class-name: org.postgresql.Driver
+
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+      pool-name: HikariCP
+      
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  data:
+    redis:
+      host: 192.168.10.100
+      port: 6379
+    mongodb:
+      host: localhost
+      port: 27017
+      database: userTest
+
+  # banner配置
+  banner:
+    charset: UTF-8
+    location: classpath:banner.txt
+
+#mybatisplus配置
+mybatis-plus:
+  configuration:
+    #配置MybatisPlus日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+#设置日志级别为DEBUG，这样可以看到详细的SQL执行信息
+logging:
+  level:
+    com.kun.mapper: debug
+  config: classpath:logback-spring.xml
+
+#  knife4j接口文档配置
+#  已经使用配置类进行设置
+springdoc:
+  #平展swagger参数,即：不使用对象包裹参数让对象的属性平铺在平展的参数中
+  default-flat-param-object: true
+#knife4j的增强配置，开启文件上传功能
+knife4j:
+  enable: true
+  setting:
+#    enableFileUpload: true
+  # 设置knife4j的语言国际化
+    language: zh_cn
+
+#日志配置
+minio:
+  endpoint: http://192.168.10.100:9000
+  access-key: minioadmin
+  secret-key: minioadmin
+  bucket-name: apartment

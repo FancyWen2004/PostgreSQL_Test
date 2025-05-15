@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kun.mapper.StudentMapper">
+
+    <select id="findByAgeRange" resultType="com.kun.entity.Student">
+        SELECT *
+        FROM student
+        WHERE age BETWEEN #{minAge} AND #{maxAge}
+    </select>
+
+    <select id="findByGrade" resultType="com.kun.entity.Student">
+        SELECT *
+        FROM student
+        WHERE grade = #{grade}
+    </select>
+
+    <select id="findByEmailLike" resultType="com.kun.entity.Student">
+        SELECT *
+        FROM student
+        WHERE email LIKE CONCAT('%', #{email}, '%')
+    </select>
+
+    <select id="findByAge" resultType="com.kun.entity.Student">
+        SELECT *
+        FROM student
+        WHERE age = #{age}
+    </select>
+
+    <select id="findByEmail" resultType="com.kun.entity.Student">
+        SELECT *
+        FROM student
+        WHERE email = #{email}
+    </select>
+
+</mapper>

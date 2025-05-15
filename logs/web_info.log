@@ -1,0 +1,92 @@
+2025-04-14 12:01:38.830 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+2025-04-14 12:01:38.859 [main] INFO  com.kun.PgsqlTestApplication - Starting PgsqlTestApplication using Java 17.0.12 with PID 23224 (E:\Project\PgsqlTest\target\classes started by WenHua in E:\Project\PgsqlTest)
+2025-04-14 12:01:38.860 [main] INFO  com.kun.PgsqlTestApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-14 12:01:39.430 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-14 12:01:39.432 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-14 12:01:39.446 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6 ms. Found 0 JPA repository interfaces.
+2025-04-14 12:01:39.467 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-14 12:01:39.467 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-04-14 12:01:39.469 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 MongoDB repository interfaces.
+2025-04-14 12:01:39.476 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-14 12:01:39.477 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-14 12:01:39.484 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2025-04-14 12:01:40.038 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-04-14 12:01:40.044 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-14 12:01:40.045 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-14 12:01:40.045 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.7]
+2025-04-14 12:01:40.144 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-14 12:01:40.145 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1259 ms
+2025-04-14 12:01:40.238 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-14 12:01:40.284 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2025-04-14 12:01:40.500 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariCP - Starting...
+2025-04-14 12:01:40.691 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariCP - Added connection org.postgresql.jdbc.PgConnection@4a5b38e6
+2025-04-14 12:01:40.692 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariCP - Start completed.
+2025-04-14 12:01:40.729 [main] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2025-04-14 12:01:40.910 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-04-14 12:01:40.918 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-14 12:01:41.747 [main] INFO  org.mongodb.driver.client - MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.8.2"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/17.0.12+8-LTS-286"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, streamFactoryFactory=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.Jep395RecordCodecProvider@238d27ef]}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='30000 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, sendBufferSize=0}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, sendBufferSize=0}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, contextProvider=null}
+2025-04-14 12:01:41.756 [cluster-ClusterId{value='67fc88a52d46da16ced49df6', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=17092100}
+2025-04-14 12:01:41.974 [main] INFO  org.redisson.Version - Redisson 3.21.3
+2025-04-14 12:01:42.153 [redisson-netty-4-6] INFO  o.r.connection.pool.MasterPubSubConnectionPool - 1 connections initialized for localhost/127.0.0.1:6379
+2025-04-14 12:01:42.204 [redisson-netty-4-20] INFO  org.redisson.connection.pool.MasterConnectionPool - 24 connections initialized for localhost/127.0.0.1:6379
+2025-04-14 12:01:42.434 [main] INFO  com.kun.config.WebMvcConfig - 开始设置静态资源映射...
+2025-04-14 12:01:42.593 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-04-14 12:01:42.602 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-04-14 12:01:42.608 [main] INFO  com.kun.PgsqlTestApplication - Started PgsqlTestApplication in 4.115 seconds (process running for 4.771)
+2025-04-14 12:01:47.219 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-14 12:01:47.219 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-04-14 12:01:47.220 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-04-14 12:01:47.965 [http-nio-8080-exec-4] INFO  org.springdoc.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 210 ms
+2025-04-14 12:02:02.594 [http-nio-8080-exec-5] INFO  org.springdoc.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 117 ms
+2025-04-14 12:02:04.307 [http-nio-8080-exec-3] INFO  org.springdoc.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 41 ms
+2025-04-14 12:02:09.741 [http-nio-8080-exec-2] INFO  com.kun.controller.commom.CommonController - 使用MongoDB工具类查询到的成员列表数据：[User(_id=67e7c785880b72495bb71237, name=wenwen, age=19), User(_id=67e7c785880b72495bb71238, name=wenwenwen, age=20), User(_id=67e7f01d08f7ca4f33b71236, name=wenhua, age=22), User(_id=1, name=wen, age=21), User(_id=67e7faccd868a58ec4780c21, name=wenwen, age=22), User(_id=67e8d3b7d97c7a70f3b8816c, name=wenwen, age=23), User(_id=67e8d75dd97c7a70f3b8816e, name=wenwen, age=19)]
+2025-04-14 12:02:09.743 [http-nio-8080-exec-2] INFO  com.kun.controller.commom.CommonController - 使用MongoDB工具类查询到的数据：User(_id=67e7c785880b72495bb71238, name=wenwenwen, age=20)
+2025-04-14 12:02:09.743 [http-nio-8080-exec-2] INFO  com.kun.controller.commom.CommonController - MongoDB查询到的数据：User(_id=67e7c785880b72495bb71238, name=wenwenwen, age=20)
+2025-04-14 12:03:07.274 [SpringApplicationShutdownHook] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-14 12:03:07.275 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariCP - Shutdown initiated...
+2025-04-14 12:03:07.277 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariCP - Shutdown completed.
+2025-04-14 12:03:10.546 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+2025-04-14 12:03:10.568 [main] INFO  com.kun.PgsqlTestApplication - Starting PgsqlTestApplication using Java 17.0.12 with PID 16016 (E:\Project\PgsqlTest\target\classes started by WenHua in E:\Project\PgsqlTest)
+2025-04-14 12:03:10.570 [main] INFO  com.kun.PgsqlTestApplication - No active profile set, falling back to 1 default profile: "default"
+2025-04-14 12:03:11.020 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-14 12:03:11.021 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-04-14 12:03:11.031 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6 ms. Found 0 JPA repository interfaces.
+2025-04-14 12:03:11.045 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-14 12:03:11.045 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2025-04-14 12:03:11.048 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 MongoDB repository interfaces.
+2025-04-14 12:03:11.053 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2025-04-14 12:03:11.054 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-04-14 12:03:11.060 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 2 ms. Found 0 Redis repository interfaces.
+2025-04-14 12:03:11.462 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-04-14 12:03:11.466 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-04-14 12:03:11.467 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-04-14 12:03:11.467 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.7]
+2025-04-14 12:03:11.542 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-04-14 12:03:11.542 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 951 ms
+2025-04-14 12:03:11.622 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-04-14 12:03:11.648 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+2025-04-14 12:03:11.800 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariCP - Starting...
+2025-04-14 12:03:11.959 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariCP - Added connection org.postgresql.jdbc.PgConnection@59a2bed1
+2025-04-14 12:03:11.960 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariCP - Start completed.
+2025-04-14 12:03:11.982 [main] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2025-04-14 12:03:12.155 [main] INFO  o.h.e.t.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-04-14 12:03:12.160 [main] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-04-14 12:03:12.907 [main] INFO  org.mongodb.driver.client - MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.8.2"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Oracle Corporation/17.0.12+8-LTS-286"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, streamFactoryFactory=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.Jep395RecordCodecProvider@5fcff272]}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='30000 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, sendBufferSize=0}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, sendBufferSize=0}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, contextProvider=null}
+2025-04-14 12:03:12.914 [cluster-ClusterId{value='67fc8900b244126204c60d0f', description='null'}-localhost:27017] INFO  org.mongodb.driver.cluster - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=25, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=15314800}
+2025-04-14 12:03:13.117 [main] INFO  org.redisson.Version - Redisson 3.21.3
+2025-04-14 12:03:13.272 [redisson-netty-4-6] INFO  o.r.connection.pool.MasterPubSubConnectionPool - 1 connections initialized for localhost/127.0.0.1:6379
+2025-04-14 12:03:13.307 [redisson-netty-4-20] INFO  org.redisson.connection.pool.MasterConnectionPool - 24 connections initialized for localhost/127.0.0.1:6379
+2025-04-14 12:03:13.501 [main] INFO  com.kun.config.WebMvcConfig - 开始设置静态资源映射...
+2025-04-14 12:03:13.634 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-04-14 12:03:13.642 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-04-14 12:03:13.647 [main] INFO  com.kun.PgsqlTestApplication - Started PgsqlTestApplication in 3.389 seconds (process running for 3.891)
+2025-04-14 12:03:14.121 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-04-14 12:03:14.121 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-04-14 12:03:14.121 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2025-04-14 12:03:14.795 [http-nio-8080-exec-3] INFO  org.springdoc.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 167 ms
+2025-04-14 12:03:18.172 [http-nio-8080-exec-6] INFO  com.kun.controller.commom.CommonController - 使用MongoDB工具类查询到的成员列表数据：[User(name=wenwen, age=19), User(name=wenwenwen, age=20), User(name=wenhua, age=22), User(name=wen, age=21), User(name=wenwen, age=22), User(name=wenwen, age=23), User(name=wenwen, age=19)]
+2025-04-14 12:03:18.174 [http-nio-8080-exec-6] INFO  com.kun.controller.commom.CommonController - 使用MongoDB工具类查询到的数据：User(name=wenwenwen, age=20)
+2025-04-14 12:03:18.174 [http-nio-8080-exec-6] INFO  com.kun.controller.commom.CommonController - MongoDB查询到的数据：User(name=wenwenwen, age=20)
+2025-04-14 12:03:23.140 [SpringApplicationShutdownHook] INFO  o.s.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-14 12:03:23.142 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariCP - Shutdown initiated...
+2025-04-14 12:03:23.144 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariCP - Shutdown completed.
