@@ -1,7 +1,9 @@
 package com.kun.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.kun.entity.Student;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
@@ -26,15 +28,13 @@ public interface StudentMapper extends BaseMapper<Student> {
 
     /**
      * 根据年龄查询学生信息
-     * @param age
-     * @return
      */
     Student findByAge(@Param("age")Integer age);
 
     /**
      * 根据邮箱地址查询学生信息
-     * @param email
-     * @return
      */
     Student findByEmail(@Param("email") String email);
+
+    IPage<Student> selectUserPage(IPage<Student> page ,int age);
 }

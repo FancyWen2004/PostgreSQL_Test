@@ -55,11 +55,11 @@ public class Constant {
      */
     public static final long BI_MODEL_ID = 1659171950288818178L;
 
-    /*
+    /**
     * 设置验证码在redis中的路径，避免验证码覆盖
      */
     public static final String CHECK_CODE_KEY = "way:";
-    /*
+    /**
     * 设置token在redis中的路径，避免token覆盖
      */
     public static final String TOKEN_KEY = "token:";

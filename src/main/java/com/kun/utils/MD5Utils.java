@@ -1,9 +1,9 @@
 package com.kun.utils;
 
 import java.security.MessageDigest;
- 
 import lombok.extern.slf4j.Slf4j;
- 
+
+// 对字符串md5加密的工具类
 @Slf4j
 public class MD5Utils {
     /***
@@ -15,7 +15,6 @@ public class MD5Utils {
             md5 = MessageDigest.getInstance("MD5");
         } catch (Exception e) {
             log.info(e.toString());
-            e.printStackTrace();
             return "";
         }
         char[] charArray = inStr.toCharArray();

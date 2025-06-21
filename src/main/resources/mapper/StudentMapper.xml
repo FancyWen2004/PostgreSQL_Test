@@ -31,5 +31,8 @@
         FROM student
         WHERE email = #{email}
     </select>
+    <select id="selectUserPage" resultType="com.kun.entity.Student">
+        SELECT * FROM student WHERE age > #{age}
+    </select>
 
 </mapper>

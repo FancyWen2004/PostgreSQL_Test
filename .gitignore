@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+#不提交log
+*.log
+#不提交logs文件夹下的文件
+/logs/
+

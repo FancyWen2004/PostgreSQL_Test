@@ -1,5 +1,6 @@
 package com.kun.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.kun.entity.Student;
 import java.util.List;
@@ -23,4 +24,8 @@ public interface IStudentService extends IService<Student> {
     Student selectByage(Integer age);
 
     Student findByEmail(String email);
+
+    IPage<Student> findByPage(Integer current, Integer size);
+
+    IPage<Student> findByPageQueryAge(Integer current, Integer size,Integer age);
 }

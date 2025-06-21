@@ -4,8 +4,8 @@ import cn.hutool.captcha.CaptchaUtil;
 import cn.hutool.captcha.CircleCaptcha;
 import com.alibaba.fastjson2.JSON;
 import com.kun.constant.Constant;
+import com.kun.entity.Dto.EmailDto;
 import com.kun.entity.Student;
-import com.kun.entity.User;
 import com.kun.result.Result;
 import com.kun.service.CommonService;
 import com.kun.service.FileService;
@@ -16,19 +16,20 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
-import java.util.List;
 
 @Slf4j
 @RestController
 @AllArgsConstructor
+@Validated
 @Tag(name = "模拟用户登陆接口")
 @RequestMapping("/common")
 public class CommonController {
@@ -41,8 +42,8 @@ public class CommonController {
     private final MongoTemplate mongoTemplate;
     private final MongoUtil mongoUtil;
 
-    @PostMapping("/getCode")
     @Operation(summary = "生成验证码(Redis)")
+    @PostMapping("/getCode")
     // 使用hutool的验证码工具实现验证码
     public Result checkCode1(HttpServletResponse response) {
         // 生成验证码
@@ -67,15 +68,16 @@ public class CommonController {
             // 关闭
             outputStream.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            // 抛出异常
+            throw new RuntimeException(e);
         }
         // 返回checkCodeKey
         return Result.success(checkCodeKey);
     }
 
     // 使用redis配合验证码实现登陆模拟
-    @PostMapping("/login")
     @Operation(summary = "验证码+邮箱登陆(Redis)")
+    @GetMapping("/login")
     public Result login(@RequestParam String code,
                         @RequestParam String checkCodeKey,
                         @RequestParam String email) {
@@ -94,20 +96,18 @@ public class CommonController {
         // 对checkCode进行判空，如果为空，说明验证码已过期
         if (checkCode == null) {
             return Result.error("验证码已过期！");
-        }
-        // 如果不为空，说明验证码未过期，进行验证码校验
-        else {
-            // 校验验证码
+        } else {
+            // 如果不为空，说明验证码未过期，进行验证码校验
             if (checkCode.equals(code)) {
                 return Result.success();
             } else {
-                return Result.error("邮箱或验证码错误");
+                return Result.error("验证码错误");
             }
         }
     }
 
-    @PostMapping("/getCode2")
     @Operation(summary = "生成验证码(Redis)2")
+    @GetMapping("/getCode2")
     public Result checkCode2() {
         String checkCode = commonService.getCheckCode2();
         if (EmptyChecker.isEmpty(checkCode)) {
@@ -117,10 +117,9 @@ public class CommonController {
         }
     }
 
-
     // 使用RedisIdWorker测试生成全局唯一ID
-    @GetMapping("/getId")
     @Operation(summary = "获取id")
+    @GetMapping("/getId")
     public Result getId() {
         long orderID = redisIdWorker.nextId("order");
         log.info("生成的订单ID：{}", orderID);
@@ -128,49 +127,45 @@ public class CommonController {
     }
 
     /**
-     * @Description: TODO
+     * @Description: TODO: 实现文件上传
      * @Author Wen
      * @Date 2025/3/25 20:14
      * @Param file
-    */
+     */
     @Operation(summary = "上传文件")
     @PostMapping("/upload")
     public Result upload(@Parameter(description = "上传的文件", required = true)
-                         @RequestPart MultipartFile file)
-    {
+                         @RequestPart MultipartFile file) {
         String url = commonService.upload(file);
         log.info("上传文件地址：{}", url);
         return Result.success(url);
     }
 
-    // 使用MongoDB测试
     /**
-     * @Description: TODO:测试MongoDB查询数据
+     * @Description: TODO: 测试MongoDB查询数据
      * @Author Wen
      * @Date 2025/4/1 14:58
      * @Param
-    */
-    @GetMapping("/mongo")
+     */
     @Operation(summary = "测试MongoDB查询数据")
-    public Result mongo() {
+    @GetMapping("/mongo")
+    public Result mongo(@Parameter(description = "姓名") @RequestParam @NotBlank(message = "查询MongoDB的那么参数不能为空") String name) {
+        return Result.success(commonService.mongoFindName(name));
+    }
 
-        // 查询mongoDB中userTest下users集合中的所有数据
-        // query条件是name为“wenwenwen”的数据
-        Query query = new Query(Criteria.where("name").is("wenwenwen"));
+    // 使用MailUtil测试发送邮件
+    @Operation(summary = "测试发送邮件")
+    @PostMapping("/sendMail")
+    public Result sendMail(@RequestBody @Valid EmailDto email) {
+        commonService.sendMail(email);
+        return Result.success(email.getTo());
+    }
 
-        User mongoTemplateOne = mongoTemplate.findOne(query, User.class);
-        User users = mongoUtil.findOne(query, User.class);
-
-        Query ageQuery = new Query();
-        ageQuery.addCriteria(Criteria.where("age").gt(18));
-        List<User> userList = mongoTemplate.find(ageQuery, User.class);
-
-        log.info("使用MongoDB工具类查询到的成员列表数据：{}", userList);
-
-        log.info("使用MongoDB工具类查询到的数据：{}", users);
-        log.info("MongoDB查询到的数据：{}", mongoTemplateOne);
-
-        return Result.success(mongoTemplateOne);
+    // 使用MailUtil测试发送邮件
+    @Operation(summary = "测试参数校验")
+    @GetMapping("/validation")
+    public Result validation(@RequestParam @NotBlank(message = "emailNum参数不能为空") String emailNum) {
+        return Result.success(emailNum);
     }
 }
 

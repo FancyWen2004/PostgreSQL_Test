@@ -14,7 +14,7 @@ public class AuthInterceptorHandler implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
 
-        // 放行/api/user/下的所有请求
+        // 放行/api下的所有请求
         if (request.getRequestURI().contains("/api/**")) {
             return true;
         }

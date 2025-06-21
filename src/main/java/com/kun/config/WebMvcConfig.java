@@ -39,11 +39,11 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         // 注册拦截器，并指定拦截路径和排除路径
         registry.addInterceptor(new CommonInterceptor())
-                // 拦截所有路径
+                // 对所有路径进行拦截
                 //.addPathPatterns("/**")  
                 // 排除登录和注册路径
-                .excludePathPatterns("/user/login")
-                // 测试需要排除所有路径
+                //.excludePathPatterns("/user/login")
+                // 测试时排除所有路径
                 .excludePathPatterns("/**");
 
     }

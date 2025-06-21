@@ -1,14 +1,9 @@
 package com.kun.result;
 
-import lombok.Builder;
 import lombok.Data;
-
 import java.io.Serializable;
 
-/**
- * 后端统一返回结果
- * @param <T>
- */
+// 通用返回结果类
 @Data
 public class Result<T> implements Serializable {
 
@@ -36,4 +31,10 @@ public class Result<T> implements Serializable {
         return result;
     }
 
+    public static <T> Result<T> error(Integer code, String msg) {
+        Result result = new Result();
+        result.msg = msg;
+        result.code = code;
+        return result;
+    }
 }

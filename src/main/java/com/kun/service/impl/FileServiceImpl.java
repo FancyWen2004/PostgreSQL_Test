@@ -1,5 +1,7 @@
 package com.kun.service.impl;
 
+import com.kun.common.exception.BusinessException;
+import com.kun.common.exception.ErrorCode;
 import com.kun.common.minio.MinioProperties;
 import com.kun.service.FileService;
 import io.minio.*;
@@ -42,12 +44,10 @@ public class FileServiceImpl implements FileService {
                     // 设置文件类型，防止生成的链接是下载类型
                     .contentType(file.getContentType())
                     .build());
-
             return String.join("/", properties.getEndpoint(), properties.getBucketName(), filename);
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new BusinessException(ErrorCode.FiLE_UPLOAD_ERROR);
         }
-        return null;
     }
     // 创建桶策略
     private String createBucketPolicyConfig(String bucketName) {

@@ -1,19 +1,25 @@
 package com.kun.controller.student;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.kun.entity.Student;
+import com.kun.entity.UserParam;
 import com.kun.result.Result;
 import com.kun.service.IStudentService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.BeanUtils;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @Tag(name = "学生管理", description = "学生信息的CRUD接口")
 @RestController
+@Validated
 @RequiredArgsConstructor
 @RequestMapping("/api/students")
 public class StudentController {
@@ -23,7 +29,6 @@ public class StudentController {
 
     // 使用构造器注入，并使用lombok简化代码
     private final IStudentService studentService;
-
 
     // 查询所有学生数据
     @Operation(summary = "获取所有学生信息", description = "返回数据库中所有学生的信息列表")
@@ -55,8 +60,8 @@ public class StudentController {
     @PostMapping("/add")
     public Result addStudent(@RequestBody @Parameter(description = "学生信息") Student student) {
         if (studentService.save(student)) {
-            return Result.success();
-        }else {
+            return Result.success(student.getId());
+        } else {
             return Result.error("学生信息有误！");
         }
     }
@@ -65,7 +70,7 @@ public class StudentController {
     @Operation(summary = "更新学生信息", description = "根据学生ID更新对应的学生信息")
     @PutMapping("/update")
     public Result updateStudent(
-        @RequestBody @Parameter(description = "更新的学生信息") Student student) {
+            @RequestBody @Parameter(description = "更新的学生信息") Student student) {
         studentService.updateById(student);
         return Result.success();
     }
@@ -109,4 +114,29 @@ public class StudentController {
         return Result.success(student);
     }
 
+    // 分页查询学生数据
+    @Operation(summary = "分页查询学生", description = "查询指定页码和每页记录数的学生信息")
+    @GetMapping("/page/{current}/{size}")
+    public Result page(@PathVariable @Parameter(description = "页码") Integer current,
+                       @PathVariable @Parameter(description = "每页记录数") Integer size) {
+        IPage<Student> students = studentService.findByPage(current, size);
+        return Result.success(students);
+    }
+
+    @Operation(summary = "测试自定义查询条件的分页查询")
+    @GetMapping("/queryPage")
+    public Result page(@RequestParam @Min(1) Integer current,
+                       @RequestParam @Min(1) Integer size,
+                       @RequestParam(required = false) @Min(0) Integer age) {
+        return Result.success(studentService.findByPageQueryAge(current, size, age));
+    }
+
+    @Operation(summary = "测试Valid校验器")
+    @PostMapping("/validator")
+    public String ValidatorTest(@RequestBody @Valid UserParam user) {
+        UserParam contractParam = new UserParam();
+        BeanUtils.copyProperties(user, contractParam);
+        System.out.println(contractParam);
+        return "success";
+    }
 }
